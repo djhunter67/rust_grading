@@ -2,28 +2,8 @@
 
 use std::io;
 
-fn ltr_grade(user_input: u8) -> String {
-    let grade_equiv: String;
-    if user_input > 89 && !user_input > 100 {
-        grade_equiv = "A".to_string();
-        grade_equiv
-    } else if user_input > 79 && !user_input > 90 {
-        grade_equiv = "B".to_string();
-        grade_equiv
-    } else if user_input > 69 && !user_input > 80 {
-        grade_equiv = "C".to_string();
-        grade_equiv
-    } else if user_input > 59 && !user_input > 70{
-        grade_equiv = "D".to_string();
-        grade_equiv
-    } else if user_input <= 59 {
-        grade_equiv = "F".to_string();
-        grade_equiv
-    } else {
-        grade_equiv = "input not recognized".to_string();
-        grade_equiv
-    }
-}
+mod ltr_grade;
+
 
 fn main() {
     // Prompt user for number grade
@@ -41,7 +21,9 @@ fn main() {
             Err(_) => continue,
         };
 
-        println!("Letter Grade: {}", ltr_grade(num_grade));
+        println!("Letter Grade: {}", ltr_grade::ltr_grade(num_grade));
         break;
     }
 }
+
+
