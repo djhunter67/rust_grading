@@ -4,7 +4,6 @@ use std::io;
 
 mod ltr_grade;
 
-
 fn main() {
     // Prompt user for number grade
     println!("Please enter your number grade: ");
@@ -15,15 +14,11 @@ fn main() {
     io::stdin()
         .read_line(&mut num_grade)
         .expect("Failed to read line");
-    loop {
-        let num_grade: u8 = match num_grade.trim().parse() {
-            Ok(num) => num,
-            Err(_) => continue,
-        };
 
-        println!("Letter Grade: {}", ltr_grade::ltr_grade(num_grade));
-        break;
-    }
+    let num_grade: u8 = match num_grade.trim().parse() {
+        Ok(num) => num,
+        Err(_) => 0,
+    };
+
+    println!("Letter Grade: {}", ltr_grade::ltr_grade(num_grade));
 }
-
-
