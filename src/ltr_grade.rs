@@ -1,3 +1,10 @@
+/*Find the specific letter grade (A+, B-, etc).
+ You can check for more specific ranges using if statements,
+ or use modulus % to get the ones-digit to set another string
+ to '+', '-', or ' '. Then you can concatenate that string
+ with your grade string.
+*/
+
 pub fn ltr_grade(user_input: u8) -> String {
     let grade_equiv: String;
     if user_input > 100 {
@@ -22,6 +29,11 @@ pub fn ltr_grade(user_input: u8) -> String {
         grade_equiv = "input not recognized".to_string();
         grade_equiv
     }
+}
+
+pub struct SpecificGrade {
+    pub plus: String,
+    pub minus: String,
 }
 
 #[test]
@@ -59,5 +71,21 @@ fn test_grade_f() {
 fn test_all_overages() {
     for i in 101..=255 {
         assert_eq!(ltr_grade(i), "Extra credit not allowed");
+    }
+}
+
+#[test]
+fn test_refined_grades() {
+    let refined_grade: SpecificGrade = SpecificGrade {
+        plus: String::from("+"),
+        minus: String::from("-"),
+    };
+    for i in 0..=100 {
+        match i % 10 {
+            7 | 8 | 9 => assert_eq!(refined_grade.plus, "+".to_string()),
+            4 | 5 | 6 => println!("{}", ltr_grade(i)),
+            0 | 1 | 2 | 3 => assert_eq!(refined_grade.minus, "-".to_string()),
+            _ => assert_eq!("Special Case", "Special Case"),
+        };
     }
 }
