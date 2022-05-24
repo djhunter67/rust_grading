@@ -35,6 +35,4 @@ fn main() {
         0 | 1 | 2 | 3 => println!("{}{}", ltr_grade(num_grade), refined_grade.minus),
         _ => println!("Special Case"),
     };
-
-    // println!("Letter Grade: {}", ltr_grade::ltr_grade(num_grade));
 }
