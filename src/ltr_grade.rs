@@ -73,3 +73,19 @@ fn test_all_overages() {
         assert_eq!(ltr_grade(i), "Extra credit not allowed");
     }
 }
+
+#[test]
+fn test_refined_grades() {
+    let refined_grade: SpecificGrade = SpecificGrade {
+        plus: String::from("+"),
+        minus: String::from("-"),
+    };
+    for i in 0..=100 {
+        match i % 10 {
+            7 | 8 | 9 => assert_eq!(refined_grade.plus, "+".to_string()),
+            4 | 5 | 6 => println!("{}", ltr_grade(i)),
+            0 | 1 | 2 | 3 => assert_eq!(refined_grade.minus, "-".to_string()),
+            _ => assert_eq!("Special Case", "Special Case"),
+        };
+    }
+}

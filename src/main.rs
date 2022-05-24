@@ -3,7 +3,6 @@
 use std::io;
 
 mod ltr_grade;
-mod ltr_grade_2;
 
 use ltr_grade::ltr_grade;
 use ltr_grade::SpecificGrade;
@@ -28,18 +27,6 @@ fn main() {
         plus: String::from("+"),
         minus: String::from("-"),
     };
-
-    // if num_grade == 100 {
-    //     println!("A{}", refined_grade.plus);
-    // } else if num_grade < 50 {
-    //     println!("{}{}", ltr_grade(num_grade), refined_grade.minus);
-    // } else if num_grade % 10 == 7 | 8 | 9 {
-    //     println!("Grade: {}{}", ltr_grade(num_grade), refined_grade.plus);
-    // } else if num_grade % 10 == 4 | 5 | 6 {
-    //     println!("Grade: {}", ltr_grade(num_grade));
-    // } else if num_grade % 10 == 1 | 2 | 3 {
-    //     println!("{}{}", ltr_grade(num_grade), refined_grade.minus);
-    //}
 
     match num_grade % 10 {
         10 => println!("{}{}", ltr_grade(num_grade), refined_grade.plus),
