@@ -1,3 +1,10 @@
+/*Find the specific letter grade (A+, B-, etc).
+ You can check for more specific ranges using if statements,
+ or use modulus % to get the ones-digit to set another string
+ to '+', '-', or ' '. Then you can concatenate that string
+ with your grade string.
+*/
+
 pub fn ltr_grade(user_input: u8) -> String {
     let grade_equiv: String;
     if user_input > 100 {
@@ -22,6 +29,11 @@ pub fn ltr_grade(user_input: u8) -> String {
         grade_equiv = "input not recognized".to_string();
         grade_equiv
     }
+}
+
+pub struct SpecificGrade {
+    pub plus: String,
+    pub minus: String,
 }
 
 #[test]
